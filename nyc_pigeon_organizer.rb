@@ -8,7 +8,7 @@ value.each do |inner_key, inner_array|
     if !final_hash[name][key] 
       final_hash[name][key]= []
     end
-    final_hash[name][key].push(inner_key)
+    final_hash[name][key].push(inner_key.to_s)
     end
   end
 end
