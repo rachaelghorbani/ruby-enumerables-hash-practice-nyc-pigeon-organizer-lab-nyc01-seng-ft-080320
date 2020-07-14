@@ -1,35 +1,16 @@
 def nyc_pigeon_organizer(data)
-  new_hash = {}
-
-  data.map do |first_key, first_nested_array|
-    first_nested_array.map do |inner_key, inner_array|
-      inner_array.map do |names|
-        new_hash[names] = {}
-      end
+final_results = data.each_with_object({}) do |(key, value), final_hash|
+value.each do |inner_key, inner_array|
+  inner_array.each do |name|
+    if !final_hash[name]
+      final_hash[name] = {}
+    end
+    if !final_hash[name][key] 
+      final_hash[name][key]= []
+    end
+    final_hash[name][key].push(inner_key)
     end
   end
-  pp new_hash
-
 end
-
-
-
-def nyc_pigeon_organizer(data)
-  new_hash = {}
-
-  data.map do |first_key, first_nested_array|
-    first_nested_array.map do |inner_key, inner_array
-              new_hash[first_key] = inner_array
-||
-      inner_array.map do |names|
-         
-          
-        
-
-      end
-      
-    end
-  end
-    pp new_hash
-
+final_results
 end
